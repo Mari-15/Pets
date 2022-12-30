@@ -37,15 +37,13 @@ chars = [digits, lowercase_letters, uppercase_letters, punctuation, spec_symbols
 
 amount_passwords = input('Сколько нужно сгенерировать паролей? Введите число: ')
 while not is_digital_valid(amount_passwords):
-    print('Введите цифру!')
-    amount_passwords = input()
+    amount_passwords = input('Введите цифру: ')
 else:
     amount_passwords = int(amount_passwords)
 
 size_password = input('Какой длинный должен быть пароль? Введите число: ')
 while not is_digital_valid(size_password):
-    print('Введите цифру!')
-    size_password = input()
+    size_password = input('Введите цифру: ')
 else:
     size_password = int(size_password)
 
