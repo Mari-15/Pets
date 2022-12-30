@@ -20,6 +20,13 @@ def is_digital_valid(number):
         return True
 
 
+def is_answer_valid(answer):
+    if answer == 'да' or answer == 'нет':
+        return False
+    else:
+        return True
+
+
 digits = '0123456789'
 lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
 uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -43,10 +50,24 @@ else:
     size_password = int(size_password)
 
 numbers = input('Должны ли быть цифры в пароле? ')
+while is_answer_valid(numbers):
+    numbers = input('Ответ может быть только "да" или "нет". Введите ответ: ')
+
 letters_upper = input('Должны ли быть символы верхнего регистра в пароле? ')
+while is_answer_valid(letters_upper):
+    letters_upper = input('Ответ может быть только "да" или "нет". Введите ответ: ')
+
 letters_lower = input('Должны ли быть символы нижнего регистра в пароле? ')
+while is_answer_valid(letters_lower):
+    letters_lower = input('Ответ может быть только "да" или "нет". Введите ответ: ')
+
 symbols = input('Должны ли быть символы? ')
+while is_answer_valid(symbols):
+    symbols = input('Ответ может быть только "да" или "нет". Введите ответ: ')
+
 speciol_symbols = input('Должны ли быть неоднозначные символы? ')
+while is_answer_valid(speciol_symbols):
+    speciol_symbols = input('Ответ может быть только "да" или "нет". Введите ответ: ')
 
 list_answer = [numbers, letters_upper, letters_lower, symbols, speciol_symbols]
 
