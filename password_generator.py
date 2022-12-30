@@ -78,5 +78,6 @@ for i in range(amount_passwords):
     password = generate_password(size_password, char_list)
     passwords.append(''.join(password))
 
-print(f'Длина пароля: {size_password}. Количество паролей: {amount_passwords}.')
+print()
+print(f'Длина пароля: {size_password} символов. Количество паролей: {amount_passwords}.')
 print(passwords)
