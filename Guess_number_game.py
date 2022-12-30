@@ -1,8 +1,8 @@
 import random
 
 
-def is_valid(text):
-    if text.isdigit() and 1 <= int(text) <= 100:
+def is_valid(text, right):
+    if text.isdigit() and 1 <= int(text) <= right:
         return True
     else:
         return False
@@ -10,8 +10,7 @@ def is_valid(text):
 
 right = 100
 number = random.randint(1, right)
-print('Добро пожаловать в числовую угадайку!')
-print('Введи свое имя, Игрок!')
+print('Добро пожаловать в числовую угадайку! Введи свое имя, Игрок!')
 user_name = input()
 print('Если захочешь остановиться - напиши "стоп".')
 print()
@@ -19,12 +18,12 @@ print(f'{user_name.title()}, введите любое целое число о�
 flag = False
 count = 0
 
-while not flag or str(number_user).lower() != 'стоп':
+while not flag or number_user.lower() != 'стоп':
     number_user = input()
-    if str(number_user).lower() == 'стоп':
+    if number_user.lower() == 'стоп':
         print(f'{user_name.title()}, поиграем в другой раз. Еще увидимся...')
         break
-    elif not is_valid(number_user) and str(number_user).lower() != 'стоп':
+    elif not is_valid(number_user, right) and number_user.lower() != 'стоп':
         print(f'{user_name.title()}, a может быть все-таки введем '
               f'целое число от 1 до {right}?')
         number_user = input()
@@ -54,8 +53,7 @@ while not flag or str(number_user).lower() != 'стоп':
                 flag_3 = False
                 while not flag_3:
                     if unswer_right.lower() == 'д':
-                        print('Введите число.')
-                        right = int(input())
+                        right = int(input('Введите число: '))
                         flag_3 = True
                     elif unswer_right.lower() == 'н':
                         break
