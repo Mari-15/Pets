@@ -14,7 +14,7 @@ def generate_chars(list_yes):
 
 
 def is_digital_valid(number):
-    if number.isalpha():
+    if number.isalpha() or number.isspace() or len(number) == 0:
         return False
     else:
         return True
@@ -78,5 +78,5 @@ for i in range(amount_passwords):
     password = generate_password(size_password, char_list)
     passwords.append(''.join(password))
 
-print(f'Длина паролей: {size_password}. Количество паролей: {amount_passwords}.')
+print(f'Длина пароля: {size_password}. Количество паролей: {amount_passwords}.')
 print(passwords)
