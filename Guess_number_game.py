@@ -13,26 +13,30 @@ number = random.randint(1, right)
 print('Добро пожаловать в числовую угадайку!')
 print('Введи свое имя, Игрок!')
 user_name = input()
+print('Если захочешь остановиться - напиши "стоп".')
+print()
 print(f'{user_name.title()}, введите любое целое число от 1 до {right}.')
 flag = False
 count = 0
 
-while not flag:
+while not flag or str(number_user).lower() != 'стоп':
     number_user = input()
-    if not is_valid(number_user):
+    if str(number_user).lower() == 'стоп':
+        print(f'{user_name.title()}, поиграем в другой раз. Еще увидимся...')
+        break
+    elif not is_valid(number_user) and str(number_user).lower() != 'стоп':
         print(f'{user_name.title()}, a может быть все-таки введем '
               f'целое число от 1 до {right}?')
         number_user = input()
-    number_user = int(number_user)
-    if number_user < number:
+    if int(number_user) < number:
         print(f'Ваше число меньше загаданного, '
               f'попробуйте еще разок.')
         count += 1
-    elif number_user > number:
+    elif int(number_user) > number:
         print(f'Ваше число больше загаданного, '
               f'попробуйте еще разок.')
         count += 1
-    elif number == number_user:
+    elif number == int(number_user):
         count += 1
         print(f'{user_name.title()}, Вы угадали, поздравляем!')
         print(f'Вы сделали {count} попыток.')
