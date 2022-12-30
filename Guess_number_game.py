@@ -19,7 +19,11 @@ while not flag:
         print('А может быть все-таки введем целое число от 1 до 100?')
         number_user = input()
     number_user = int(number_user)
-    if number == number_user:
+    if number_user < number:
+        print('Ваше число меньше загаданного, попробуйте еще разок.')
+    elif number_user > number:
+        print('Ваше число больше загаданного, попробуйте еще разок.')
+    elif number == number_user:
         print('Поздравляем, вы угадали!')
         flag = True
         break
