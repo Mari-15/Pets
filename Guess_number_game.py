@@ -24,10 +24,13 @@ while not flag or number_user.lower() != 'стоп':
         print(f'{user_name.title()}, поиграем в другой раз. Еще увидимся...')
         break
     elif not is_valid(number_user, right) and number_user.lower() != 'стоп':
-        print(f'{user_name.title()}, a может быть все-таки введем '
+        if number_user.isalpha():
+            print(f'{user_name.title()}, a может быть все-таки введем '
               f'целое число от 1 до {right}?')
-        number_user = input()
-    if int(number_user) < number:
+        elif number_user.isdigit() and int(number_user) > right:
+            print('Ваше число больше правой границы. Будьте внимательней!')
+            print('Попробуйте еще раз.')
+    elif int(number_user) < number:
         print(f'Ваше число меньше загаданного, '
               f'попробуйте еще разок.')
         count += 1
