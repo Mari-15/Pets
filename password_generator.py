@@ -41,7 +41,7 @@ while not is_digital_valid(amount_passwords):
 else:
     amount_passwords = int(amount_passwords)
 
-size_password = input('Какой длинный должен быть пароль? Введите число: ')
+size_password = input('Какой длины должен быть пароль? Введите число: ')
 while not is_digital_valid(size_password):
     size_password = input('Введите цифру: ')
 else:
