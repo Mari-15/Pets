@@ -1,6 +1,3 @@
-import math
-
-
 def un_cript(phrase_func, language_lower, language_upper, step):
     phrase_new_func = ''
     for j in phrase_func:
