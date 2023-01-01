@@ -33,15 +33,15 @@ def is_valid_digit_answer(num):
 
 
 def is_valid_abc_answer(abc):
-    if abc == 'д' or abc == 'н':
+    if abc == '1' or abc == '2':
         return True
     else:
         return False
 
 
-step_cycle = input('Сдвиг циклом?\nВведите "д" или "н": ').lower()
+step_cycle = input('Сдвиг циклом?\nВведите "1" для "да" или "2" для "нет": ').lower()
 while not is_valid_abc_answer(step_cycle):
-    step_cycle = input('Ответ может быть только "д" или "н".\nВведите ответ: ').lower()
+    step_cycle = input('Ответ может быть только "1" или "2".\nВведите ответ: ').lower()
 
 print()
 step_move = input('Шаг сдвига?\nНапишите цифру: ')
@@ -51,15 +51,15 @@ step_move = int(step_move)
 
 print()
 answer_cipher = input('Шифрование или дешефрование? \n'
-                      'Напишите "д" для шифрования или "н" для дешефривания: ').lower()
+                      'Напишите "1" для шифрования или "2" для дешефривания: ').lower()
 while not is_valid_abc_answer(answer_cipher):
-    answer_cipher = input('Ответ может быть только "д" или "н".\nВведите ответ: ').lower()
+    answer_cipher = input('Ответ может быть только "1" или "2".\nВведите ответ: ').lower()
 
 print()
 language = input('Русский или английский язык? \n'
-                 'Напишите "д" для русского или "н" для английского: ').lower()
+                 'Напишите "1" для русского или "2" для английского: ').lower()
 while not is_valid_abc_answer(language):
-    language = input('Ответ может быть только "д" или "н".\nВведите ответ: ').lower()
+    language = input('Ответ может быть только "1" или "2".\nВведите ответ: ').lower()
 
 upper_eng_alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 lower_eng_alphabet = 'abcdefghijklmnopqrstuvwxyz'
@@ -70,26 +70,26 @@ print()
 phrase = input()
 
 # шифрование
-if step_cycle == 'н':
-    if answer_cipher == 'д':
-        if language == 'д':
+if step_cycle == '2':
+    if answer_cipher == '1':
+        if language == '1':
             phrase_new = un_cript(phrase, lower_rus_alphabet, upper_rus_alphabet, step_move)
-        elif language == 'н':
+        elif language == '2':
             phrase_new = un_cript(phrase, lower_eng_alphabet, upper_eng_alphabet, step_move)
 
 # дешифровка
-    elif answer_cipher == 'н':
-        if language == 'д':
+    elif answer_cipher == '2':
+        if language == '1':
             phrase_new = in_cript(phrase, lower_rus_alphabet, upper_rus_alphabet, step_move)
-        elif language == 'н':
+        elif language == '2':
             phrase_new = in_cript(phrase, lower_eng_alphabet, upper_eng_alphabet, step_move)
     print(phrase_new)
 
 # когда цикл вместо сдвига
-if step_cycle == 'д':
-    if answer_cipher == 'д':
+if step_cycle == '1':
+    if answer_cipher == '2':
         for j in range(step_move):
-            if language == 'а':
+            if language == '2':
                 for i in phrase:
                     if i in lower_eng_alphabet:
                         phrase_new += lower_eng_alphabet[(lower_eng_alphabet.index(i) - j)
