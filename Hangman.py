@@ -88,7 +88,6 @@ def play(word):
     guessed_letters = []
     guessed_words = []
     tries = 6
-    print('Давайте играть в угадайку слов!')
     print(display_hangman(tries))
     print(word_completion)
     print(f'В слове {len(word_comp)} букв.')
@@ -140,13 +139,25 @@ def play(word):
         print(display_hangman(tries))
 
 
-word_list = ['банан', 'огурец', 'помидор', 'волос', 'яблоко',
-             'персик', 'арбуз', 'совет', 'синоним', 'деньги']
+list_fruits_and_veg = ['банан', 'огурец', 'помидор', 'картошка', 'яблоко',
+             'персик', 'арбуз', 'груша', 'редис', 'морковь']
+list_animals = ['кот', 'собака', 'лошадь', 'кролик', 'бегемот',
+             'слон', 'лев', 'жираф', 'антилопа', 'корова']
+list_mebel = ['стол', 'стул', 'шкаф', 'тумба', 'кресло',
+             'кровать', 'диван', 'пуфик', 'прилавок', 'табурет']
+lists = [list_fruits_and_veg, list_animals, list_mebel]
+lists_tips = ['Загаданное слово это какой-то фрукт или овощ.',
+              'Загаданное слово это какое-то животное',
+              'Загаданное слово это какой-то предмет мебели.']
 
 alfabet_upper = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
 alfabet_lower = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
 
-word_for_game = get_word(word_list)
+print('Давайте играть в угадайку слов!')
+categore = int(input('Есть несколько категорий. Введите цифру от 1 до 3 включительно: '))
+word_for_game = get_word(lists[categore - 1])
+print(lists_tips[categore - 1])
+
 play(word_for_game)
 
 print()
@@ -154,7 +165,9 @@ play_again = input('Если хотите сыграть еще, введите 
 print()
 while play_again.lower() == 'да':
     if play_again.lower() == 'да':
-        word_for_game = get_word(word_list)
+        categore = int(input('Есть несколько категорий. Введите цифру от 1 до 3 включительно: '))
+        word_for_game = get_word(lists[categore - 1])
+        print(lists_tips[categore - 1])
         play(word_for_game)
         play_again = input('Если хотите сыграть еще, введите "да": ')
 else:
