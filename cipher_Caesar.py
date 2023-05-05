@@ -80,7 +80,8 @@ if step_cycle == '2':
             phrase_new = in_cript(phrase, lower_rus_alphabet, upper_rus_alphabet, step_move)
         elif language == '2':
             phrase_new = in_cript(phrase, lower_eng_alphabet, upper_eng_alphabet, step_move)
-    print(phrase_new)
+
+print(phrase_new)
 
 # когда цикл вместо сдвига
 if step_cycle == '1':
